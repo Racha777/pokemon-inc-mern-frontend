@@ -1,9 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const PokemonLayout = () => {
   return (
     <>
-      <header className="text-center">PokémonInc</header>
+      <header className="text-center">
+        <Link to="/">PokémonInc</Link>
+      </header>
       <main className="text-center">
         <Outlet />
       </main>
