@@ -1,7 +1,11 @@
 import * as yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import usePokemon from '../../hooks/usePokemon';
 
 const PokemonsForm = () => {
+
+  const { createPokemon } = usePokemon();
+
   return (
     <Formik
       initialValues={{
@@ -21,7 +25,7 @@ const PokemonsForm = () => {
         image: yup.string().required('La imagen es requerida')
       })}
       onSubmit={(values, actions) => {
-        console.log(values);
+        createPokemon(values);
       }}
     >
       {({ handleSubmit }) => {
