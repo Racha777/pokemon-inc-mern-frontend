@@ -28,21 +28,36 @@ const PokemonsForm = () => {
         return (
           <Form
             onSubmit={handleSubmit}
-            className="text-black"
+            className="flex flex-col gap-4 bg-zinc-700 rounded-md w-4/5 max-w-sm mx-auto p-4"
           >
-            <Field name="name" placeholder="Nombre" />
-            <ErrorMessage name="name" />
-            <Field name="type" placeholder="Tipo" />
-            <ErrorMessage name="type" />
-            <Field name="hp" placeholder="Hp" />
-            <ErrorMessage name="hp" />
-            <Field name="attack" placeholder="Ataque" />
-            <ErrorMessage name="attack" />
-            <Field name="special" placeholder="Especial" />
-            <ErrorMessage name="special" />
-            <Field name="image" placeholder="Imagen" />
-            <ErrorMessage name="image" />
-            <button type="submit">Crear</button>
+            <div className="flex flex-col gap-1">
+              <Field name="name" placeholder="Nombre" className="bg-zinc-800 rounded p-2" />
+              <ErrorMessage name="name" component="div" className="text-rose-500 text-sm" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <Field name="type" placeholder="Tipo" className="bg-zinc-800 rounded p-2" />
+              <ErrorMessage name="type" component="div" className="text-rose-500 text-sm" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <Field name="hp" placeholder="Hp" className="bg-zinc-800 rounded p-2" />
+              <ErrorMessage name="hp" component="div" className="text-rose-500 text-sm" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <Field name="attack" placeholder="Ataque" className="bg-zinc-800 rounded p-2" />
+              <ErrorMessage name="attack" component="div" className="text-rose-500 text-sm" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <Field name="special" placeholder="Especial" className="bg-zinc-800 rounded p-2" />
+              <ErrorMessage name="special" component="div" className="text-rose-500 text-sm" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <Field name="image" placeholder="Imagen" className="bg-zinc-800 rounded p-2" />
+              <ErrorMessage name="image" component="div" className="text-rose-500 text-sm" />
+            </div>
+            <button
+              type="submit"
+              className="bg-cyan-300 rounded-md text-black font-medium p-2 cursor-pointer transition-colors hover:bg-white"
+            >Crear</button>
           </Form>
         );
       }}
