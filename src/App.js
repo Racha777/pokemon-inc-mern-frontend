@@ -1,12 +1,12 @@
 import {
   Routes,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import './App.css';
 import { PokemonProvider } from './context/PokemonContext';
 import PokemonLayout from './layouts/PokemonLayout';
 import PokemonsCreate from './pages/pokemons/PokemonsCreate';
+import PokemonsRead from './pages/pokemons/PokemonsRead';
 
 function App() {
   return (
@@ -15,12 +15,7 @@ function App() {
         <Route path='/' element={<PokemonLayout />}>
           <Route path='/create-pokemon' element={<PokemonsCreate />} />
           <Route path='/update-pokemon' element={<h2>update-pokemon</h2>} />
-          <Route index element={
-            <div>
-              <h2>Home</h2>
-              <Link to='create-pokemon'>Crear Pokémon</Link>
-            </div>
-          } />
+          <Route index element={<PokemonsRead />} />
         </Route>
         <Route path='*' element={<h2>404</h2>} />
       </Routes>
