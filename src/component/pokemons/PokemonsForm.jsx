@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 const PokemonsForm = () => {
   const { id } = useParams();
-  const { pokemon, createPokemon } = usePokemon();
+  const { pokemon, submitPokemonsForm } = usePokemon();
   const [formPokemon, setFormPokemon] = useState({
     name: '',
     type: '',
@@ -38,7 +38,7 @@ const PokemonsForm = () => {
         image: yup.string().required('La imagen es requerida')
       })}
       onSubmit={(values, actions) => {
-        createPokemon(values);
+        submitPokemonsForm(values);
       }}
     >
       {({ handleSubmit }) => {

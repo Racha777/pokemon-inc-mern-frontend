@@ -58,6 +58,14 @@ export const PokemonProvider = ({ children }) => {
     }
   };
 
+  const submitPokemonsForm = (pokemon) => {
+    if (pokemon._id === undefined) {
+      createPokemon(pokemon)
+    } else {
+      console.log('Editar');
+    }
+  };
+
   useEffect(() => {
     console.log('Hola');
     readPokemons();
@@ -69,7 +77,7 @@ export const PokemonProvider = ({ children }) => {
         pokemon,
         pokemons,
         setPokemons,
-        createPokemon,
+        submitPokemonsForm,
         readPokemon
       }}
     >
