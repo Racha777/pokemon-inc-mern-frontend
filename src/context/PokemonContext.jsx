@@ -44,6 +44,19 @@ export const PokemonProvider = ({ children }) => {
     }
   };
 
+  const readPokemon = async (_id) => {
+    try {
+      const options = {
+        method: 'GET',
+        url: `${process.env.REACT_APP_API_URL}/pokemons/${_id}`
+      };
+      const { data } = await axios(options);
+      return data;
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   useEffect(() => {
     readPokemons();
   }, []);
