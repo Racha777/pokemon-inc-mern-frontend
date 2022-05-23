@@ -1,21 +1,34 @@
 import * as yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import usePokemon from '../../hooks/usePokemon';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const PokemonsForm = () => {
+  const { id } = useParams();
+  const { pokemon, createPokemon } = usePokemon();
+  const [formPokemon, setFormPokemon] = useState({
+    name: '',
+    type: '',
+    hp: '',
+    attack: '',
+    special: '',
+    image: ''
+  });
 
-  const { createPokemon } = usePokemon();
+  useEffect(() => {
+    if (id) {
+      setFormPokemon({
+        ...pokemon,
+        image: pokemon.image?.url
+      })
+    }
+  }, [id, pokemon]);
 
   return (
     <Formik
-      initialValues={{
-        name: '',
-        type: '',
-        hp: '',
-        attack: '',
-        special: '',
-        image: ''
-      }}
+      initialValues={formPokemon}
+      enableReinitialize
       validationSchema={yup.object({
         name: yup.string().required('El nombre es requerido'),
         type: yup.string().required('El tipo es requerido'),
@@ -61,7 +74,9 @@ const PokemonsForm = () => {
             <button
               type="submit"
               className="bg-cyan-300 rounded-md text-black font-medium p-2 cursor-pointer transition-colors hover:bg-white"
-            >Crear</button>
+            >
+              {id ? 'Editar' : 'Crear'}
+            </button>
           </Form>
         );
       }}

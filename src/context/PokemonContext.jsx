@@ -8,6 +8,7 @@ export const PokemonProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
+  const [pokemon, setPokemon] = useState({});
   const [pokemons, setPokemons] = useState([]);
 
   const createPokemon = async (pokemon) => {
@@ -51,22 +52,25 @@ export const PokemonProvider = ({ children }) => {
         url: `${process.env.REACT_APP_API_URL}/pokemons/${_id}`
       };
       const { data } = await axios(options);
-      return data;
+      setPokemon(data);
     } catch (error) {
       console.log(error.message);
     }
   };
 
   useEffect(() => {
+    console.log('Hola');
     readPokemons();
   }, []);
 
   return (
     <PokemonContext.Provider
       value={{
+        pokemon,
         pokemons,
         setPokemons,
-        createPokemon
+        createPokemon,
+        readPokemon
       }}
     >
       {children}
