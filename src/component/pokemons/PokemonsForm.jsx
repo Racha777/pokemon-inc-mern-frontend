@@ -17,11 +17,11 @@ const PokemonsForm = () => {
   });
 
   useEffect(() => {
-    if (id) {
+    if (id && pokemon._id) {
       setFormPokemon({
         ...pokemon,
         image: pokemon.image?.url
-      })
+      });
     }
   }, [id, pokemon]);
 

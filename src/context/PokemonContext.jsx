@@ -58,16 +58,37 @@ export const PokemonProvider = ({ children }) => {
     }
   };
 
+  const updatePokemon = async (pokemon) => {
+    try {
+      pokemon.image = {
+        publicId: 0,
+        url: pokemon.image
+      };
+      const options = {
+        method: 'PUT',
+        data: pokemon,
+        url: `${process.env.REACT_APP_API_URL}/pokemons/${pokemon._id}`
+      };
+      const { data } = await axios(options);
+      setPokemons(pokemons.map((pokemon) => {
+        return pokemon._id === data._id ? data : pokemon;
+      }));
+      setPokemon({});
+      navigate('/');
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  };
+
   const submitPokemonsForm = (pokemon) => {
     if (pokemon._id === undefined) {
-      createPokemon(pokemon)
+      createPokemon(pokemon);
     } else {
-      console.log('Editar');
+      updatePokemon(pokemon);
     }
   };
 
   useEffect(() => {
-    console.log('Hola');
     readPokemons();
   }, []);
 
