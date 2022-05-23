@@ -7,7 +7,7 @@ const PokemonsCard = ({ pokemon }) => {
   const { _id, name, type, hp, attack, special, image } = pokemon;
   return (
     <div
-      className="flex flex-col items-center gap-4 bg-white border border-cyan-300 rounded-lg shadow-sm shadow-zinc-100 max-w-xs p-4 dark:bg-zinc-700 dark:border-cyan-300"
+      className="flex flex-col items-center gap-4 bg-white rounded-lg shadow max-w-xs p-4 transition-shadow dark:bg-zinc-700 dark:shadow-cyan-300 dark:hover:shadow-yellow-400"
     >
       <div className="w-32 h-32">
         <img className="w-full h-full object-cover" src={image.url} alt={name} />
