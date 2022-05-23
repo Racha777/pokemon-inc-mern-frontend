@@ -1,10 +1,46 @@
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import usePokemon from "../../hooks/usePokemon";
 
 const PokemonsCard = ({ pokemon }) => {
   const { deletePokemon } = usePokemon();
-
   const { _id, name, type, hp, attack, special, image } = pokemon;
+
+  const handleDelete = (_id) => {
+    toast((t) =>
+    (
+      <div className="flex flex-col gap-2">
+        <h5 className="text-lg font-medium text-center">¿Deseas eliminarlo?</h5>
+        <div className="flex gap-2">
+          <button
+            className="bg-rose-500 rounded-md text-white font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-rose-600"
+            onClick={() => {
+              deletePokemon(_id);
+              toast.dismiss(t.id);
+            }}
+          >
+            Eliminar
+          </button>
+          <button
+            onClick={() => toast.dismiss(t.id)}
+            className="bg-cyan-300 rounded-md text-black font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-white"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    ),
+      {
+        icon: '❗❕❗',
+        style: {
+          borderRadius: '1rem',
+          background: '#20232a',
+          color: '#fff',
+        },
+      }
+    );
+  };
+
   return (
     <div
       className="flex flex-col items-center gap-4 bg-white rounded-lg shadow max-w-xs p-4 transition-shadow dark:bg-zinc-700 dark:shadow-cyan-300 dark:hover:shadow-yellow-400"
@@ -27,7 +63,7 @@ const PokemonsCard = ({ pokemon }) => {
         </Link>
         <button
           className="bg-rose-500 rounded-md text-white font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-rose-600"
-          onClick={() => deletePokemon(_id)}
+          onClick={() => handleDelete(_id)}
         >
           Eliminar
         </button>
