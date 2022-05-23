@@ -28,7 +28,7 @@ export const PokemonProvider = ({ children }) => {
       ]);
       navigate('/');
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.message);
     }
   };
 
@@ -41,7 +41,7 @@ export const PokemonProvider = ({ children }) => {
       const { data } = await axios(options);
       setPokemons(data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.message);
     }
   };
 
@@ -54,7 +54,7 @@ export const PokemonProvider = ({ children }) => {
       const { data } = await axios(options);
       setPokemon(data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.message);
     }
   };
 
