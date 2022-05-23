@@ -80,6 +80,22 @@ export const PokemonProvider = ({ children }) => {
     }
   };
 
+  const deletePokemon = async (_id) => {
+    try {
+      const options = {
+        method: 'DELETE',
+        url: `${process.env.REACT_APP_API_URL}/pokemons/${_id}`
+      };
+      const { data } = await axios(options);
+      setPokemons(pokemons.filter((pokemon) => {
+        return pokemon._id !== _id;
+      }));
+      console.log(data);
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  };
+
   const submitPokemonsForm = (pokemon) => {
     if (pokemon._id === undefined) {
       createPokemon(pokemon);
@@ -99,7 +115,8 @@ export const PokemonProvider = ({ children }) => {
         pokemons,
         setPokemons,
         submitPokemonsForm,
-        readPokemon
+        readPokemon,
+        deletePokemon
       }}
     >
       {children}

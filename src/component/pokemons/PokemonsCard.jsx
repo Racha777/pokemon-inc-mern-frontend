@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import usePokemon from "../../hooks/usePokemon";
 
 const PokemonsCard = ({ pokemon }) => {
+  const { deletePokemon } = usePokemon();
+
   const { _id, name, type, hp, attack, special, image } = pokemon;
   return (
     <div
@@ -22,9 +25,12 @@ const PokemonsCard = ({ pokemon }) => {
         <Link to={`update-pokemon/${_id}`} className="bg-cyan-300 rounded-md text-black font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-white">
           Editar
         </Link>
-        <Link to="/" className="bg-rose-500 rounded-md text-white font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-rose-600">
+        <button
+          className="bg-rose-500 rounded-md text-white font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-rose-600"
+          onClick={() => deletePokemon(_id)}
+        >
           Eliminar
-        </Link>
+        </button>
       </div>
     </div>
   );
