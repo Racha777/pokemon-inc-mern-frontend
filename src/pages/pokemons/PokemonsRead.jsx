@@ -10,7 +10,7 @@ const PokemonsRead = () => {
     <section>
       <div className="flex flex-col gap-4 container mx-auto">
         <div className="flex justify-between">
-          <h2>Pokémons</h2>
+          <h2>Pokémons ({pokemons.length})</h2>
           <Link to='create-pokemon'>Crear Pokémon</Link>
         </div>
         <div className="grid justify-center md:grid-cols-4 gap-8">

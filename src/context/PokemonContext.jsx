@@ -13,12 +13,20 @@ export const PokemonProvider = ({ children }) => {
 
   const createPokemon = async (pokemon) => {
     try {
-      pokemon.image = {
-        url: pokemon.image
-      };
+      // pokemon.image = {
+      //   url: pokemon.image
+      // };
+      const form = new FormData();
+      for (let key in pokemon) {
+        form.append(key, pokemon[key]);
+      }
       const options = {
         method: 'POST',
-        data: pokemon,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        // data: pokemon,
+        data: form,
         url: `${process.env.REACT_APP_API_URL}/pokemons`
       };
       const { data } = await axios(options);
