@@ -38,11 +38,11 @@ const PokemonsForm = () => {
         special: yup.string().required('El especial es requerido'),
         // image: yup.object().required('La imagen es requerida')
       })}
-      onSubmit={(values, actions) => {
-        submitPokemonsForm(values);
+      onSubmit={async (values, actions) => {
+        await submitPokemonsForm(values);
       }}
     >
-      {({ handleSubmit, setFieldValue }) => {
+      {({ handleSubmit, setFieldValue, isSubmitting }) => {
         return (
           <Form
             onSubmit={handleSubmit}
@@ -80,9 +80,10 @@ const PokemonsForm = () => {
             />
             <button
               type="submit"
-              className="bg-cyan-300 rounded-md text-black font-medium p-2 cursor-pointer transition-colors hover:bg-white"
+              className="bg-cyan-300 rounded-md text-black font-medium p-2 cursor-pointer transition-colors hover:bg-white disabled:bg-white/50 disabled:cursor-progress "
+              disabled={isSubmitting}
             >
-              {id ? 'Editar' : 'Crear'}
+              {isSubmitting ? 'Loading 💭' : id ? 'Editar' : 'Crear'}
             </button>
           </Form>
         );

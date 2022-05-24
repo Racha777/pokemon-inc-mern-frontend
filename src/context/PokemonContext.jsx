@@ -104,11 +104,11 @@ export const PokemonProvider = ({ children }) => {
     }
   };
 
-  const submitPokemonsForm = (pokemon) => {
+  const submitPokemonsForm = async (pokemon) => {
     if (pokemon._id === undefined) {
-      createPokemon(pokemon);
+      await createPokemon(pokemon);
     } else {
-      updatePokemon(pokemon);
+      await updatePokemon(pokemon);
     }
   };
 
