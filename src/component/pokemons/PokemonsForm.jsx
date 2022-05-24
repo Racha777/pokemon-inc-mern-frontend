@@ -76,7 +76,7 @@ const PokemonsForm = () => {
               name="image"
               className="bg-zinc-800 rounded p-2 text-sm cursor-pointer file:bg-white file:border-0 file:rounded file:text-sm file:font-semibold file:mr-2 file:py-1 file:px-2 file:cursor-pointer file:transition-colors hover:file:bg-zinc-200"
               onChange={(e) => setFieldValue('image', e.target.files[0])}
-              required
+              required={id ? false : true}
             />
             <button
               type="submit"

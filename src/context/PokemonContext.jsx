@@ -68,13 +68,21 @@ export const PokemonProvider = ({ children }) => {
 
   const updatePokemon = async (pokemon) => {
     try {
-      pokemon.image = {
-        publicId: 0,
-        url: pokemon.image
-      };
+      // pokemon.image = {
+      //   publicId: 0,
+      //   url: pokemon.image
+      // };
+      const form = new FormData();
+      for (let key in pokemon) {
+        form.append(key, pokemon[key]);
+      }
       const options = {
         method: 'PUT',
-        data: pokemon,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        // data: pokemon,
+        data: form,
         url: `${process.env.REACT_APP_API_URL}/pokemons/${pokemon._id}`
       };
       const { data } = await axios(options);
