@@ -7,12 +7,9 @@ const PokemonsRead = () => {
   const { pokemons } = usePokemon();
 
   return (
-    <section>
-      <div className="flex flex-col gap-4 container mx-auto">
-        <div className="flex justify-between">
-          <h2>Pokémons ({pokemons.length})</h2>
-          <Link to='create-pokemon'>Crear Pokémon</Link>
-        </div>
+    <section className="py-8">
+      <div className="flex flex-col gap-8 container mx-auto px-8 md:px-4">
+        <h2 className="text-3xl text-yellow-400 font-bold">Pokémons ({pokemons.length})</h2>
         <div className="grid justify-center md:grid-cols-4 gap-8">
           {
             pokemons.map((pokemon) => {

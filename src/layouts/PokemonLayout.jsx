@@ -15,7 +15,7 @@ const PokemonLayout = () => {
       <Header
         applicationName={applicationName}
       />
-      <main className="text-center pt-24 pb-8">
+      <main className="text-center pt-16 pb-8">
         <Outlet />
       </main>
       <Footer
