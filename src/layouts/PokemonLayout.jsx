@@ -9,7 +9,7 @@ const PokemonLayout = () => {
       <main className="text-center">
         <Outlet />
       </main>
-      <footer className="text-center">ELGS</footer>
+      <footer className="text-center mt-auto">ELGS</footer>
     </>
   );
 }
