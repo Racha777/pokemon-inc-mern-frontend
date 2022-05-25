@@ -1,8 +1,15 @@
 import { Outlet } from "react-router-dom";
+import Footer from "../component/sections/Footer";
 import Header from "../component/sections/Header";
 
 const PokemonLayout = () => {
   const applicationName = "PokémonInc";
+
+  const credits = {
+    year: new Date().getFullYear(),
+    author: 'ELGS'
+  }
+
   return (
     <>
       <Header
@@ -11,7 +18,9 @@ const PokemonLayout = () => {
       <main className="text-center pt-24 pb-8">
         <Outlet />
       </main>
-      <footer className="text-center mt-auto">ELGS</footer>
+      <Footer
+        credits={credits}
+      />
     </>
   );
 }
