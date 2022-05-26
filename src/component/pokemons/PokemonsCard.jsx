@@ -34,8 +34,9 @@ const PokemonsCard = ({ pokemon }) => {
         icon: '❗❕❗',
         style: {
           borderRadius: '1rem',
-          background: '#20232a',
+          backgroundColor: '#20232a',
           color: '#fff',
+          boxShadow: '0 0 0 0.125rem #8888, 0 0 0 0.25rem #8888'
         },
       }
     );
@@ -43,7 +44,7 @@ const PokemonsCard = ({ pokemon }) => {
 
   return (
     <div
-      className="flex flex-col items-center gap-4 bg-white rounded-lg shadow max-w-xs p-4 transition-shadow dark:bg-zinc-700 dark:shadow-cyan-300 dark:hover:shadow-yellow-400"
+      className="flex flex-col items-center gap-4 bg-white rounded-lg shadow shadow-cyan-300 hover:shadow-yellow-400 transition-shadow w-64 p-4 md:w-80 dark:bg-zinc-700"
     >
       <div className="w-32 h-32">
         <img className="w-full h-full object-cover" src={image.url} alt={name} />
