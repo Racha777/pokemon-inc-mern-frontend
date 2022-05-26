@@ -8,6 +8,7 @@ export const showToast = (icon, message) => {
         borderRadius: '1rem',
         background: '#20232a',
         color: '#fff',
+        boxShadow: '0 0 0 0.125rem #8888, 0 0 0 0.25rem #8888'
       },
     }
   );
