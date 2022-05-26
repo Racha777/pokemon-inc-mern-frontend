@@ -30,7 +30,7 @@ export const PokemonsProvider = ({ children }) => {
         },
         // data: pokemon,
         data: form,
-        url: `${process.env.REACT_APP_API_URL}/pokemons`
+        url: `${process.env.REACT_APP_POKEMON_INC_MERN_API}/pokemons`
       };
       const { data } = await axios(options);
       setPokemons([
@@ -50,7 +50,7 @@ export const PokemonsProvider = ({ children }) => {
     try {
       const options = {
         method: 'GET',
-        url: `${process.env.REACT_APP_API_URL}/pokemons`
+        url: `${process.env.REACT_APP_POKEMON_INC_MERN_API}/pokemons`
       };
       const { data } = await axios(options);
       setPokemons(data);
@@ -64,7 +64,7 @@ export const PokemonsProvider = ({ children }) => {
       setLoading(true);
       const options = {
         method: 'GET',
-        url: `${process.env.REACT_APP_API_URL}/pokemons/${_id}`
+        url: `${process.env.REACT_APP_POKEMON_INC_MERN_API}/pokemons/${_id}`
       };
       const { data } = await axios(options);
       setPokemon(data);
@@ -94,7 +94,7 @@ export const PokemonsProvider = ({ children }) => {
         },
         // data: pokemon,
         data: form,
-        url: `${process.env.REACT_APP_API_URL}/pokemons/${pokemon._id}`
+        url: `${process.env.REACT_APP_POKEMON_INC_MERN_API}/pokemons/${pokemon._id}`
       };
       const { data } = await axios(options);
       setPokemons(pokemons.map((pokemon) => {
@@ -115,7 +115,7 @@ export const PokemonsProvider = ({ children }) => {
       setLoading(true);
       const options = {
         method: 'DELETE',
-        url: `${process.env.REACT_APP_API_URL}/pokemons/${_id}`
+        url: `${process.env.REACT_APP_POKEMON_INC_MERN_API}/pokemons/${_id}`
       };
       const { data } = await axios(options);
       setPokemons(pokemons.filter((pokemon) => {
