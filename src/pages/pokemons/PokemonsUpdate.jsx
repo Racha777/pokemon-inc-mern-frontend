@@ -9,6 +9,7 @@ const PokemonsUpdate = () => {
 
   useEffect(() => {
     readPokemon(id);
+    // eslint-disable-next-line
   }, [id]);
 
   return (
