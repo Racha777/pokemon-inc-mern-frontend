@@ -59,7 +59,7 @@ const PokemonsCard = ({ pokemon }) => {
         <span className="bg-zinc-800 rounded-xl text-white text-sm font-normal px-3 py-1">{special}</span>
       </div>
       <div className="flex gap-2">
-        <Link to={`update-pokemon/${_id}`} className="bg-cyan-300 rounded-md text-black font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-white">
+        <Link to={`update/${_id}`} className="bg-cyan-300 rounded-md text-black font-medium px-3 py-1 cursor-pointer transition-colors hover:bg-white">
           Editar
         </Link>
         <button
