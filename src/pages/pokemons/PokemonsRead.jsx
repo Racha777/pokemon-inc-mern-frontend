@@ -1,9 +1,9 @@
 import PokemonsCard from "../../component/pokemons/PokemonsCard";
-import usePokemon from "../../hooks/usePokemon";
+import usePokemons from "../../hooks/usePokemons";
 
 const PokemonsRead = () => {
 
-  const { pokemons } = usePokemon();
+  const { pokemons } = usePokemons();
 
   return (
     <section className="py-8">

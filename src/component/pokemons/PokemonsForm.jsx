@@ -1,12 +1,12 @@
 import * as yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import usePokemon from '../../hooks/usePokemon';
+import usePokemons from '../../hooks/usePokemons';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const PokemonsForm = () => {
   const { id } = useParams();
-  const { pokemon, submitPokemonsForm } = usePokemon();
+  const { pokemon, submitPokemonsForm } = usePokemons();
   const [formPokemon, setFormPokemon] = useState({
     name: '',
     type: '',

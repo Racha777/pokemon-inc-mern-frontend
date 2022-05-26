@@ -1,9 +1,9 @@
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import usePokemon from "../../hooks/usePokemon";
+import usePokemons from "../../hooks/usePokemons";
 
 const PokemonsCard = ({ pokemon }) => {
-  const { deletePokemon } = usePokemon();
+  const { deletePokemon } = usePokemons();
   const { _id, name, type, hp, attack, special, image } = pokemon;
 
   const handleDelete = (_id) => {
