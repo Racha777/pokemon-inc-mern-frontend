@@ -48,6 +48,7 @@ export const PokemonsProvider = ({ children }) => {
 
   const readPokemons = async () => {
     try {
+      setLoading(true);
       const options = {
         method: 'GET',
         url: `${process.env.REACT_APP_POKEMON_INC_MERN_API}/pokemons`
@@ -56,6 +57,8 @@ export const PokemonsProvider = ({ children }) => {
       setPokemons(data);
     } catch (error) {
       console.log(error.response.data.message);
+    } finally {
+      setLoading(false);
     }
   };
 
