@@ -44,7 +44,7 @@ const PokemonsCard = ({ pokemon }) => {
 
   return (
     <div
-      className="flex flex-col items-center gap-4 bg-white rounded-lg shadow shadow-cyan-300 hover:shadow-yellow-400 transition-shadow w-64 p-4 md:w-80 dark:bg-zinc-700"
+      className="flex flex-col items-center gap-4 bg-white rounded-lg shadow shadow-cyan-300 hover:shadow-yellow-400 transition-shadow w-full max-w-xs p-4 dark:bg-zinc-700"
     >
       <div className="w-32 h-32">
         <img className="w-full h-full object-cover" src={image.url} alt={name} />

@@ -9,7 +9,7 @@ const PokemonsUpdate = () => {
 
   useEffect(() => {
     readPokemon(id);
-  }, []);
+  }, [id]);
 
   return (
     <section className="py-8">
