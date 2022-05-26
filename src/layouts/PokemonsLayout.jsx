@@ -1,8 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../component/sections/Footer";
 import Header from "../component/sections/Header";
+import Loader from "../component/sections/Loader";
+import usePokemons from "../hooks/usePokemons";
 
 const PokemonsLayout = () => {
+  const { loading } = usePokemons();
+
   const applicationName = "PokémonInc";
 
   const credits = {
@@ -12,6 +16,7 @@ const PokemonsLayout = () => {
 
   return (
     <>
+      {loading && <Loader />}
       <Header
         applicationName={applicationName}
       />

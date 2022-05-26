@@ -9,11 +9,13 @@ export const PokemonsProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const [pokemon, setPokemon] = useState({});
   const [pokemons, setPokemons] = useState([]);
 
   const createPokemon = async (pokemon) => {
     try {
+      setLoading(true);
       // pokemon.image = {
       //   url: pokemon.image
       // };
@@ -39,6 +41,8 @@ export const PokemonsProvider = ({ children }) => {
       navigate('/');
     } catch (error) {
       console.log(error.response.data.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -50,7 +54,6 @@ export const PokemonsProvider = ({ children }) => {
       };
       const { data } = await axios(options);
       setPokemons(data);
-      showToast('📚', 'Leídos');
     } catch (error) {
       console.log(error.response.data.message);
     }
@@ -58,6 +61,7 @@ export const PokemonsProvider = ({ children }) => {
 
   const readPokemon = async (_id) => {
     try {
+      setLoading(true);
       const options = {
         method: 'GET',
         url: `${process.env.REACT_APP_API_URL}/pokemons/${_id}`
@@ -67,11 +71,14 @@ export const PokemonsProvider = ({ children }) => {
       showToast('📚', 'Leído');
     } catch (error) {
       console.log(error.response.data.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const updatePokemon = async (pokemon) => {
     try {
+      setLoading(true);
       // pokemon.image = {
       //   publicId: 0,
       //   url: pokemon.image
@@ -98,11 +105,14 @@ export const PokemonsProvider = ({ children }) => {
       navigate('/');
     } catch (error) {
       console.log(error.response.data.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const deletePokemon = async (_id) => {
     try {
+      setLoading(true);
       const options = {
         method: 'DELETE',
         url: `${process.env.REACT_APP_API_URL}/pokemons/${_id}`
@@ -114,6 +124,8 @@ export const PokemonsProvider = ({ children }) => {
       showToast('❌', data.message);
     } catch (error) {
       console.log(error.response.data.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -132,6 +144,7 @@ export const PokemonsProvider = ({ children }) => {
   return (
     <PokemonsContext.Provider
       value={{
+        loading,
         pokemon,
         pokemons,
         setPokemons,
