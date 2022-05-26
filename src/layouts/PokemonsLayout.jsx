@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../component/sections/Footer";
 import Header from "../component/sections/Header";
 
-const PokemonLayout = () => {
+const PokemonsLayout = () => {
   const applicationName = "PokémonInc";
 
   const credits = {
@@ -25,4 +25,4 @@ const PokemonLayout = () => {
   );
 }
 
-export default PokemonLayout;
+export default PokemonsLayout;

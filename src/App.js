@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import { PokemonsProvider } from './context/PokemonsContext';
-import PokemonLayout from './layouts/PokemonLayout';
+import PokemonsLayout from './layouts/PokemonsLayout';
 import PokemonsCreate from './pages/pokemons/PokemonsCreate';
 import PokemonsRead from './pages/pokemons/PokemonsRead';
 import PokemonsUpdate from './pages/pokemons/PokemonsUpdate';
@@ -15,7 +15,7 @@ function App() {
     <PokemonsProvider>
       <Toaster />
       <Routes>
-        <Route path='/' element={<PokemonLayout />}>
+        <Route path='/' element={<PokemonsLayout />}>
           <Route path='create-pokemon' element={<PokemonsCreate />} />
           <Route path='update-pokemon/:id' element={<PokemonsUpdate />} />
           <Route index element={<PokemonsRead />} />
