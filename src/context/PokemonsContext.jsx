@@ -3,9 +3,9 @@ import { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { showToast } from '../utils/reactHotToast';
 
-export const PokemonContext = createContext();
+export const PokemonsContext = createContext();
 
-export const PokemonProvider = ({ children }) => {
+export const PokemonsProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
@@ -130,7 +130,7 @@ export const PokemonProvider = ({ children }) => {
   }, []);
 
   return (
-    <PokemonContext.Provider
+    <PokemonsContext.Provider
       value={{
         pokemon,
         pokemons,
@@ -141,6 +141,6 @@ export const PokemonProvider = ({ children }) => {
       }}
     >
       {children}
-    </PokemonContext.Provider>
+    </PokemonsContext.Provider>
   );
 };

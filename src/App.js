@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 import './App.css';
-import { PokemonProvider } from './context/PokemonContext';
+import { PokemonsProvider } from './context/PokemonsContext';
 import PokemonLayout from './layouts/PokemonLayout';
 import PokemonsCreate from './pages/pokemons/PokemonsCreate';
 import PokemonsRead from './pages/pokemons/PokemonsRead';
@@ -12,7 +12,7 @@ import PokemonsUpdate from './pages/pokemons/PokemonsUpdate';
 
 function App() {
   return (
-    <PokemonProvider>
+    <PokemonsProvider>
       <Toaster />
       <Routes>
         <Route path='/' element={<PokemonLayout />}>
@@ -22,7 +22,7 @@ function App() {
         </Route>
         <Route path='*' element={<h2>404</h2>} />
       </Routes>
-    </PokemonProvider>
+    </PokemonsProvider>
   );
 }
 
