@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../component/sections/Footer";
-import Header from "../component/sections/Header";
-import Loader from "../component/sections/Loader";
+import Footer from "../components/sections/Footer";
+import Header from "../components/sections/Header";
+import Loader from "../components/sections/Loader";
 import usePokemons from "../hooks/usePokemons";
 
 const PokemonsLayout = () => {

@@ -1,4 +1,4 @@
-import PokemonsCard from "../../component/pokemons/PokemonsCard";
+import PokemonsCard from "../../components/pokemons/PokemonsCard";
 import usePokemons from "../../hooks/usePokemons";
 
 const PokemonsRead = () => {

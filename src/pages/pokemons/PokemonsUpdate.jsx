@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import PokemonsForm from "../../component/pokemons/PokemonsForm";
+import PokemonsForm from "../../components/pokemons/PokemonsForm";
 import usePokemons from "../../hooks/usePokemons";
 
 const PokemonsUpdate = () => {

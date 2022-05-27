@@ -1,4 +1,4 @@
-import PokemonsForm from "../../component/pokemons/PokemonsForm";
+import PokemonsForm from "../../components/pokemons/PokemonsForm";
 
 const PokemonsCreate = () => {
   return (

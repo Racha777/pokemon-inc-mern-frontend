@@ -40,6 +40,8 @@ const PokemonsForm = () => {
       })}
       onSubmit={async (values, actions) => {
         await submitPokemonsForm(values);
+        actions.setSubmitting(false);
+        actions.resetForm();
       }}
     >
       {({ handleSubmit, setFieldValue, isSubmitting }) => {
